@@ -26,7 +26,7 @@ from typing import List, Dict, Any, Optional, Tuple
 import PyPDF2
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-from mistralai import Mistral
+from mistralai.client import MistralClient
 import re
 import tempfile
 from dotenv import load_dotenv
@@ -541,6 +541,15 @@ async def root():
             "organizations": ["AAU", "CSIR", "NHM", "NTPC", "TANUVAS"],
             "deadline": "24 December 2025"
         }
+    }
+
+@app.get("/keep-alive")
+async def keep_alive():
+    return {
+        "status": "alive",
+        "timestamp": datetime.now().isoformat(),
+
+        "health": "pass"
     }
 
 
