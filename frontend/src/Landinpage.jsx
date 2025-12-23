@@ -25,8 +25,9 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showStats, setShowStats] = useState(false);
 
-  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-
+//   const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+// In Landinpage.jsx
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://backend-job-form-analysis-system.onrender.com';
   // Apply dark mode to document
   useEffect(() => {
     if (darkMode) {
